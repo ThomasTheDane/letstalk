@@ -1,0 +1,9 @@
+TODO:
+Get boilerplate running
+Develop Profile criteria 
+Get the hackathon starter up and running 
+
+DONE:
+Research Docker
+Research hangout button
+
