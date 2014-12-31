@@ -1,9 +1,6 @@
 TODO:
-Get boilerplate running
-Develop Profile criteria 
-Get the hackathon starter up and running 
-
-DONE:
-Research Docker
-Research hangout button
-
+develop profile card maker
+    figure out how to save card and configuration
+figure out how to know when someone signs in for first time
+figure out how to ban members
+see if there is a way to measure length of hangout talk

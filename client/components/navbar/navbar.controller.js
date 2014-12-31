@@ -5,6 +5,9 @@ angular.module('letsTalkApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+        'title': 'My Profile',
+        'link': '/myprofile'
     }];
 
     $scope.isCollapsed = true;
