@@ -17,5 +17,5 @@ angular.module('letsTalkApp')
           $scope.message = '';
         });
       }
-		};
+    };
   });
