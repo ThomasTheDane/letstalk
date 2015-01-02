@@ -103,33 +103,42 @@ block content
     .col-md-3
       #profilePreview
         #informationRegion
-          #name Thomas Nattestad
-          img#picture(src='#{user.profile.picture}' height='70px')
-          #seeking
-            b Seeking:
-            br
-            |  To serve the dark lord, all hail satan
-          hr
-          #age
-            b Age:
-            |  21
-          #gender
-            b Male
-          hr
-          #location
-            b Location:
-            br
-            |  Like, fucking everywhere
-          hr
-          #profession
-            b Profession:
-            br
-            |  Being a straight baller
-          hr
-          #religiousBeliefs
-            b Religious Beliefs:
-            br
-            |  There is no god summer
+          if user.profile.showName
+            #name #{user.profile.name}
+          if user.profile.showPicture
+            img#picture(src='#{user.profile.picture}' height='70px')
+          if user.profile.showSeeking
+            #seeking
+              b Seeking:
+              br
+              |  #{user.profile.seeking}
+            hr
+          if user.profile.showAge
+            #age
+              b Age:
+              |  #{user.profile.age}
+          if user.profile.showGender
+            #gender
+              b #{user.profile.gender}
+          if user.profile.showAge || user.profile.showGender
+            hr
+          if user.profile.showLocation
+            #location
+              b Location:
+              br
+              |  #{user.profile.location}
+            hr
+          if user.profile.showProfession
+            #profession
+              b Profession:
+              br
+              |  #{user.profile.profession}
+            hr
+          if user.profile.showReligiousBeliefs
+            #religiousBeliefs
+              b Religious Beliefs:
+              br
+              |  #{user.profile.religiousBeliefs}
         #ratingRegion
           .ratingStar#star1
           .ratingStar#star2
