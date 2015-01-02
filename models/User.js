@@ -31,7 +31,9 @@ var userSchema = new mongoose.Schema({
     showProfession: {type: Boolean, default:true},
 
     religiousBeliefs: {type: String, default: ''},
-    showReligiousBeliefs: {type: Boolean, default: false}
+    showReligiousBeliefs: {type: Boolean, default: false},
+
+    rating: {type: Number, default: 0}
   },
 
   resetPasswordToken: String,

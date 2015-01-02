@@ -18,11 +18,11 @@ block content
                   input.showOnCardBox(type='checkbox', name='showName', checked=(user.profile.showName ? "checked" : undefined))
 
           .form-group
-            label.col-sm-3.control-label(for='name') Why seeking talks
+            label.col-sm-3.control-label(for='name') Seeking
             .col-sm-9
               .row
                 .col-xs-11
-                  input.form-control(type='text', name='seeking', value='#{user.profile.seeking}')
+                  input.form-control(type='text', name='seeking', placeholder='What you are looking for in talks' value='#{user.profile.seeking}')
                 .col-xs-1
                   input.showOnCardBox(type='checkbox', name='showSeeking', checked=(user.profile.showSeeking ? "checked" : undefined))
 
@@ -102,6 +102,41 @@ block content
 
     .col-md-3
       #profilePreview
+        #informationRegion
+          #name Thomas Nattestad
+          img#picture(src='#{user.profile.picture}' height='70px')
+          #seeking
+            b Seeking:
+            br
+            |  To serve the dark lord, all hail satan
+          hr
+          #age
+            b Age:
+            |  21
+          #gender
+            b Male
+          hr
+          #location
+            b Location:
+            br
+            |  Like, fucking everywhere
+          hr
+          #profession
+            b Profession:
+            br
+            |  Being a straight baller
+          hr
+          #religiousBeliefs
+            b Religious Beliefs:
+            br
+            |  There is no god summer
+        #ratingRegion
+          .ratingStar#star1
+          .ratingStar#star2
+          .ratingStar#star3
+          .ratingStar#star4
+          .ratingStar#star5
+
 
   .row
     .page-header
