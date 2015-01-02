@@ -266,7 +266,9 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
           var user = new User();
           user.email = profile._json.email;
           user.google = profile.id;
-          user.tokens.push({ kind: 'google', accessToken: accessToken });
+          if(user.tokens) {
+            user.tokens.push({ kind: 'google', accessToken: accessToken });
+          }
           user.profile.name = profile.displayName;
           user.profile.gender = profile._json.gender;
           user.profile.picture = profile._json.picture;

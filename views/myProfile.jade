@@ -1,0 +1,114 @@
+//
+   Created by thomasnattestad on 1/1/15.
+extends layout
+block content
+  .page-header
+    h3 Edit Profile
+  .row
+    .col-md-6
+      form.form-horizontal(action='/myProfile', method='POST')
+          input(type='hidden', name='_csrf', value=_csrf)
+          .form-group
+            label.col-sm-3.control-label(for='name') Name
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='name', value='#{user.profile.name}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showName', checked=(user.profile.showName ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='name') Why seeking talks
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='seeking', value='#{user.profile.seeking}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showSeeking', checked=(user.profile.showSeeking ? "checked" : undefined))
+
+
+          .form-group
+            label.col-sm-3.control-label(for='age') Age
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='age', value='#{user.profile.age}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showAge', checked=(user.profile.showAge ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='gender') Gender
+            .col-sm-9
+              .row
+                .col-xs-11
+                  label.radio
+                    input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
+                    span Male
+                  label.radio
+                    input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
+                    span Female
+                  label.radio
+                    input(type='radio', checked=user.profile.gender=='other', name='gender', value='other', data-toggle='radio')
+                    span Other
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showGender', checked=(user.profile.showGender ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='location') Location
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='location', value='#{user.profile.location}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showLocation', checked=(user.profile.showLocation ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='Profession') Profession
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='profession', value='#{user.profile.profession}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showProfession', checked=(user.profile.showProfession ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='religiousBeliefs') Religious Beliefs
+            .col-sm-9
+              .row
+                .col-xs-11
+                  input.form-control(type='text', name='religiousBeliefs', value='#{user.profile.religiousBeliefs}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showReligiousBeliefs', checked=(user.profile.showReligiousBeliefs ? "checked" : undefined))
+
+          .form-group
+            label.col-sm-3.control-label(for='picture') Picture
+            .col-sm-9
+              .row
+                .col-xs-11
+                  //input.form-control(type='text', name='picture', value='#{user.profile.}')
+                  //br
+                  if user.profile.picture
+                    img(src='#{user.profile.picture}')
+                  else
+                    img(src='#{user.gravatar(50)}')
+                .col-xs-1
+                  input.showOnCardBox(type='checkbox', name='showPicture', checked=(user.profile.showPicture ? "checked" : undefined))
+
+          .form-group
+            .col-sm-offset-3.col-sm-4
+              button.btn.btn.btn-primary(type='submit')
+                span.ion-edit
+                | Update Profile
+
+    .col-md-3
+      #profilePreview
+
+  .row
+    .page-header
+      h3 Delete Account
+      p You can delete your account, but keep in mind this action is irreversible.
+      form(action='/account/delete', method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        button.btn.btn-danger(type='submit')
+          span.ion-trash-b
+          | Delete my account

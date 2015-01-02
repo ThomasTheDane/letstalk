@@ -6,20 +6,32 @@ var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
 
-  facebook: String,
-  twitter: String,
   google: String,
-  github: String,
-  instagram: String,
-  linkedin: String,
-  tokens: Array,
 
   profile: {
     name: { type: String, default: '' },
+    showName: {type: Boolean, default: true},
+
+    seeking: {type: String, default: ''},
+    showSeeking: {type: Boolean, default: true},
+
     gender: { type: String, default: '' },
+    showGender: {type: Boolean, default:true},
+
+    age: {type: String, default: ''},
+    showAge: {type: Boolean, default: true},
+
     location: { type: String, default: '' },
-    website: { type: String, default: '' },
-    picture: { type: String, default: '' }
+    showLocation: {type: Boolean, default: true},
+
+    picture: { type: String, default: '' },
+    showPicture: {type: Boolean, default:true},
+
+    profession: {type: String, default: ''},
+    showProfession: {type: Boolean, default:true},
+
+    religiousBeliefs: {type: String, default: ''},
+    showReligiousBeliefs: {type: Boolean, default: false}
   },
 
   resetPasswordToken: String,
