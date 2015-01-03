@@ -42,13 +42,13 @@ block content
               .row
                 .col-xs-11
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='male', name='gender', value='male', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='male', name='gender', value='Male', data-toggle='radio')
                     span Male
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='female', name='gender', value='female', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='female', name='gender', value='Female', data-toggle='radio')
                     span Female
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='other', name='gender', value='other', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='other', name='gender', value='Other', data-toggle='radio')
                     span Other
                 .col-xs-1
                   input.showOnCardBox(type='checkbox', name='showGender', checked=(user.profile.showGender ? "checked" : undefined))
@@ -103,42 +103,33 @@ block content
     .col-md-3
       #profilePreview
         #informationRegion
-          if user.profile.showName
-            #name #{user.profile.name}
-          if user.profile.showPicture
-            img#picture(src='#{user.profile.picture}' height='70px')
-          if user.profile.showSeeking
-            #seeking
-              b Seeking:
-              br
-              |  #{user.profile.seeking}
+          #name #{user.profile.name}
+          img#picture(src='#{user.profile.picture}' height='70px')
+          #seeking
+            b Seeking:
+            br
+            p  #{user.profile.seeking}
             hr
-          if user.profile.showAge
-            #age
-              b Age:
-              |  #{user.profile.age}
-          if user.profile.showGender
-            #gender
-              b #{user.profile.gender}
-          if user.profile.showAge || user.profile.showGender
+          #age
+            b Age:
+            |  #{user.profile.age}
+          #gender
+            b #{user.profile.gender}
+          hr#ageGenderHr
+          #location
+            b Location:
+            br
+            p  #{user.profile.location}
+          #profession
             hr
-          if user.profile.showLocation
-            #location
-              b Location:
-              br
-              |  #{user.profile.location}
+            b Profession:
+            br
+            p  #{user.profile.profession}
+          #religiousBeliefs
             hr
-          if user.profile.showProfession
-            #profession
-              b Profession:
-              br
-              |  #{user.profile.profession}
-            hr
-          if user.profile.showReligiousBeliefs
-            #religiousBeliefs
-              b Religious Beliefs:
-              br
-              |  #{user.profile.religiousBeliefs}
+            b Religious Beliefs:
+            br
+            p  #{user.profile.religiousBeliefs}
         #ratingRegion
           .ratingStar#star1
           .ratingStar#star2
@@ -156,3 +147,5 @@ block content
         button.btn.btn-danger(type='submit')
           span.ion-trash-b
           | Delete my account
+  script.
+    var page = 'myProfile'
