@@ -42,13 +42,13 @@ block content
               .row
                 .col-xs-11
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='male', name='gender', value='Male', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='Male', name='gender', value='Male', data-toggle='radio')
                     span Male
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='female', name='gender', value='Female', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='Female', name='gender', value='Female', data-toggle='radio')
                     span Female
                   label.radio
-                    input(type='radio', checked=user.profile.gender=='other', name='gender', value='Other', data-toggle='radio')
+                    input(type='radio', checked=user.profile.gender=='Other', name='gender', value='Other', data-toggle='radio')
                     span Other
                 .col-xs-1
                   input.showOnCardBox(type='checkbox', name='showGender', checked=(user.profile.showGender ? "checked" : undefined))
@@ -109,14 +109,14 @@ block content
             b Seeking:
             br
             p  #{user.profile.seeking}
-            hr
+          hr#ageGenderHr
           #age
             b Age:
             |  #{user.profile.age}
           #gender
             b #{user.profile.gender}
-          hr#ageGenderHr
           #location
+            hr
             b Location:
             br
             p  #{user.profile.location}
@@ -130,12 +130,12 @@ block content
             b Religious Beliefs:
             br
             p  #{user.profile.religiousBeliefs}
-        #ratingRegion
-          .ratingStar#star1
-          .ratingStar#star2
-          .ratingStar#star3
-          .ratingStar#star4
-          .ratingStar#star5
+        //#ratingRegion
+        //  .ratingStar#star1
+        //  .ratingStar#star2
+        //  .ratingStar#star3
+        //  .ratingStar#star4
+        //  .ratingStar#star5
 
 
   .row

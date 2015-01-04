@@ -15,4 +15,7 @@
 
 //= require lib/jquery-2.1.1.min
 //= require lib/bootstrap.min
+//= require lib/underscore.min
+//= require lib/idle.min
+//= require lib/firebase-2.0.6.min
 //= require main

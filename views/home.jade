@@ -1,75 +1,15 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
+  h1 Lettuce Talk
+  p.lead Find people online to talk to
   hr
-  .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-
-      #profilePreview
-        #informationRegion
-          if user.profile.showName
-            #name #{user.profile.name}
-          if user.profile.showPicture
-            img#picture(src='#{user.profile.picture}' height='70px')
-          if user.profile.showSeeking
-            #seeking
-              b Seeking:
-              br
-              |  #{user.profile.seeking}
-            hr
-          if user.profile.showAge
-            #age
-              b Age:
-              |  #{user.profile.age}
-          if user.profile.showGender
-            #gender
-              b #{user.profile.gender}
-          if user.profile.showAge || user.profile.showGender
-            hr
-          if user.profile.showLocation
-            #location
-              b Location:
-              br
-              |  #{user.profile.location}
-            hr
-          if user.profile.showProfession
-            #profession
-              b Profession:
-              br
-              |  #{user.profile.profession}
-            hr
-          if user.profile.showReligiousBeliefs
-            #religiousBeliefs
-              b Religious Beliefs:
-              br
-              |  #{user.profile.religiousBeliefs}
-        #ratingRegion
-          .ratingStar#star1
-          .ratingStar#star2
-          .ratingStar#star3
-          .ratingStar#star4
-          .ratingStar#star5
+  .row#onlineProfiles
 
   script.
-    var page = "home"
+    var page = "home";
+  if user
+    script.
+      var userProfile = #{user.profile};
+      var userId = '#{user._id}'
+
