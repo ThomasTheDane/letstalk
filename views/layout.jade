@@ -7,6 +7,11 @@ html
     meta(name='csrf-token', content=_csrf)
     title #{title} - Lettuce Talk
     != css('main')
+    if user
+      script.
+        var userProfile = #{user.profile};
+        var userId = '#{user._id}'
+
   body
     include partials/navbar
 
