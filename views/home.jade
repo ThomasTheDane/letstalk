@@ -5,6 +5,22 @@ block content
   p.lead Find people online to talk to
   hr
   .row#onlineProfiles
+  .modal.fade#inviteModal
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title
+
+        .modal-body
+          .row
+            .col-md-offset-4#inviteProfile
+
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+          button.btn.btn-primary(type='button') Send Invitation
 
   script.
     var page = "home";

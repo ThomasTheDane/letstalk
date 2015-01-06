@@ -78,7 +78,7 @@ $(document).ready(function() {
 
 
 
-  var cardTemplate = _.template('<div class="col-sm-3" id="<%= profileIdentifier %>"> <div id="profilePreview"> <div id="informationRegion"> <% if(showName && name!=""){ %> <div id="name" style=""><%= name %></div> <% } %> <% if(showPicture && picture!=""){ %> <img id="picture" src="<%= picture %>" height="70px"> <% } %> <% if(showSeeking && seeking!=""){ %> <div id="seeking"> <b>Seeking:</b><br><p><%= seeking %></p> </div> <% } %> <% if((showAge || showGender) && (name!="" || age!="")){ %> <hr id="ageGenderHr"> <% } %> <% if(showAge && age!=""){ %> <div id="age"><b>Age:</b> <%= age %></div> <% } %> <% if(showGender && gender!="" && gender!="male"){ %> <div id="gender"><b><%= gender %></b></div> <% } %> <% if(showLocation && location!=""){ %> <div id="location"><hr><b>Location:</b><br><p><%= location %></p></div> <% } %> <% if(showProfession && profession!=""){ %> <div id="profession"><hr><b>Profession:</b><br><p><%= profession %></p></div> <% } %> <% if(showReligiousBeliefs && religiousBeliefs!=""){ %> <div id="religiousBeliefs"><hr><b>Religious Beliefs:</b><br><p><%= religiousBeliefs %></p></div> <% } %> </div> </div> </div> ');
+  var cardTemplate = _.template('<div class="col-sm-3" id="<%= profileIdentifier %>"> <div id="profilePreview" data-toggle="modal" data-target="#inviteModal"> <div id="informationRegion"> <% if(showName && name!=""){ %> <div id="name" style=""><%= name %></div> <% } %> <% if(showPicture && picture!=""){ %> <img id="picture" src="<%= picture %>" height="70px"> <% } %> <% if(showSeeking && seeking!=""){ %> <div id="seeking"> <b>Seeking:</b><br><p><%= seeking %></p> </div> <% } %> <% if((showAge || showGender) && (name!="" || age!="")){ %> <hr id="ageGenderHr"> <% } %> <% if(showAge && age!=""){ %> <div id="age"><b>Age:</b> <%= age %></div> <% } %> <% if(showGender && gender!="" && gender!="male"){ %> <div id="gender"><b><%= gender %></b></div> <% } %> <% if(showLocation && location!=""){ %> <div id="location"><hr><b>Location:</b><br><p><%= location %></p></div> <% } %> <% if(showProfession && profession!=""){ %> <div id="profession"><hr><b>Profession:</b><br><p><%= profession %></p></div> <% } %> <% if(showReligiousBeliefs && religiousBeliefs!=""){ %> <div id="religiousBeliefs"><hr><b>Religious Beliefs:</b><br><p><%= religiousBeliefs %></p></div> <% } %> </div> </div> </div> ');
 
   // Prompt the user for a name to use.
   var name = 'Thomas';
@@ -121,7 +121,14 @@ $(document).ready(function() {
     userListRef.on("child_added", function (snapshot) {
       var aProfile = snapshot.val().profile;
       aProfile.profileIdentifier = snapshot.key();
-      $("#onlineProfiles").append(cardTemplate(aProfile));
+
+      var newCard = cardTemplate(aProfile);
+      $("#onlineProfiles").append(newCard);
+      $("#" + aProfile.profileIdentifier).click(function(e){
+        $('.modal-title').text("Invite " + aProfile.name + " to talk!");
+        $('#inviteProfile').html(cardTemplate(aProfile));
+        $('#inviteProfile #informationRegion').css('height', 'auto');
+      });
     });
 
     // Update our GUI to remove the status of a user who has left.
