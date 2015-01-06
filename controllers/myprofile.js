@@ -18,7 +18,6 @@ exports.index = function(req, res) {
 exports.postUpdateProfile = function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-    user.email = req.body.email || '';
     user.profile.name = req.body.name || '';
     user.profile.seeking = req.body.seeking || '';
     user.profile.gender = req.body.gender || '';

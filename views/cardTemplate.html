@@ -1,41 +1,41 @@
 <div class="col-sm-3" id="<%= profileIdentifier %>">
     <div id="profilePreview">
         <div id="informationRegion">
-            <% if(showName){ %>
+            <% if(showName && name!=""){ %>
                 <div id="name" style=""><%= name %></div>
             <% } %>
 
-            <% if(showPicture){ %>
+            <% if(showPicture && picture!=""){ %>
                 <img id="picture" src="<%= picture %>" height="70px">
             <% } %>
 
-            <% if(showSeeking){ %>
+            <% if(showSeeking && seeking!=""){ %>
                 <div id="seeking">
                     <b>Seeking:</b><br><p><%= seeking %></p>
                 </div>
             <% } %>
 
-            <% if(showAge || showGender){ %>
+            <% if((showAge || showGender) && (name!="" || age!="")){ %>
                 <hr id="ageGenderHr">
             <% } %>
 
-            <% if(showAge){ %>
+            <% if(showAge && age!=""){ %>
                 <div id="age"><b>Age:</b> <%= age %></div>
             <% } %>
 
-            <% if(showGender){ %>
+            <% if(showGender && gender!="" && gender!="male"){ %>
                 <div id="gender"><b><%= gender %></b></div>
             <% } %>
 
-            <% if(showLocation){ %>
+            <% if(showLocation && location!=""){ %>
                 <div id="location"><hr><b>Location:</b><br><p><%= location %></p></div>
             <% } %>
 
-            <% if(showProfession){ %>
+            <% if(showProfession && profession!=""){ %>
                 <div id="profession"><hr><b>Profession:</b><br><p><%= profession %></p></div>
             <% } %>
 
-            <% if(showReligiousBeliefs){ %>
+            <% if(showReligiousBeliefs && religiousBeliefs!=""){ %>
                 <div id="religiousBeliefs"><hr><b>Religious Beliefs:</b><br><p><%= religiousBeliefs %></p></div>
             <% } %>
 

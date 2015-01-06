@@ -88,7 +88,7 @@ block content
                   //input.form-control(type='text', name='picture', value='#{user.profile.}')
                   //br
                   if user.profile.picture
-                    img(src='#{user.profile.picture}')
+                    img(src='#{user.profile.picture}', height='100', width='100')
                   else
                     img(src='#{user.gravatar(50)}')
                 .col-xs-1
