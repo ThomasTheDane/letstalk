@@ -120,15 +120,17 @@ $(document).ready(function() {
     // Update our GUI to show someone"s online status.
     userListRef.on("child_added", function (snapshot) {
       var aProfile = snapshot.val().profile;
-      aProfile.profileIdentifier = snapshot.key();
+      console.log(aProfile.picture);
+      if(aProfile.picture != userProfile.picture || aProfile.name != userProfile.name || aProfile.location != userProfile.location) {
+        aProfile.profileIdentifier = snapshot.key();
 
-      var newCard = cardTemplate(aProfile);
-      $("#onlineProfiles").append(newCard);
-      $("#" + aProfile.profileIdentifier).click(function(e){
-        $('.modal-title').text("Invite " + aProfile.name + " to talk!");
-        $('#inviteProfile').html(cardTemplate(aProfile));
-        $('#inviteProfile #informationRegion').css('height', 'auto');
-      });
+        var newCard = cardTemplate(aProfile);
+        $("#onlineProfiles").append(newCard);
+        $("#" + aProfile.profileIdentifier).click(function (e) {
+          $('.modal-title').text("Invite " + aProfile.name + " to talk!");
+          $('#inviteProfile').html(cardTemplate(aProfile));
+        });
+      }
     });
 
     // Update our GUI to remove the status of a user who has left.
@@ -143,7 +145,10 @@ $(document).ready(function() {
       var aProfile = snapshot.val().profile;
       aProfile.profileIdentifier = snapshot.key();
       $("#onlineProfiles").append(cardTemplate(aProfile));
+    });
 
+    $('#sendInvitation').click(function(e){
+      e.preventDefault();
     });
   }
   var awayCallback = function() {

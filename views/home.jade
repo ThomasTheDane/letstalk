@@ -15,12 +15,15 @@ block content
 
         .modal-body
           .row
-            .col-md-offset-4#inviteProfile
+            .col-sm-offset-1#inviteProfile
+            .col-sm-offset-2.col-sm-5#invitationMessage
+                h3 What would you like to talk about?
+                textarea
 
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Close
 
-          button.btn.btn-primary(type='button') Send Invitation
+          button.btn.btn-primary#sendInvitation(type='button') Send Invitation
 
   script.
     var page = "home";
